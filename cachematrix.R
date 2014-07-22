@@ -1,8 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This code implements a special object that stores an invertible matrix
+## and caches its inverse.
 
-## Write a short comment describing this function
 
+## Function makeCacheMatrix is a container for a matrix (assumed to be
+## invertible) that can cache the inverse of the matrix when it is computed.
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(y) {
@@ -19,10 +20,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## Function cacheSolve takes as input an object of the type makeCacheMatrix
+## produces and returns the inverse of the input matrix. If the inverse was
+## already stored in the input object then the stored value is returned,
+## otherwise the inverse is computed and then stored and returned.
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
     inv <- x$getinverse()
     if (!is.null(inv)){
         message("getting cached inverse data")
